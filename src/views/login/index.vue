@@ -11,7 +11,7 @@
             <el-input placeholder="请输入账号" v-model="form.username"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input placeholder="请输入密码" type="password" v-model="form.password"></el-input>
+            <el-input placeholder="请输入密码" type="password" v-model="form.password" show-password></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" style="width: 100%">登 录</el-button>
@@ -48,7 +48,7 @@ export default {
     return {
       form: {
         username: 'admin',
-        password: 'admin'
+        password: '123456'
       }
     }
   },
