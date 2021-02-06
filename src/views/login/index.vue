@@ -62,6 +62,7 @@ export default {
       const { data: res } = await login(this.form)
       console.log(res)
       this.$store.commit('setRightList', res.rights)
+      this.$store.commit('setUsername', res.username)
       this.$message.success({
         message: '登陆成功',
         center: true

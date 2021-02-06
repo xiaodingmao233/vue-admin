@@ -1,5 +1,6 @@
 <template>
   <el-container class="layout-container">
+    <!-- style="width: 210px!important;" -->
     <el-aside class="aside" width="auto">
       <app-aside class="aside-menu" :is-collapse="isCollapse"></app-aside>
     </el-aside>
@@ -14,12 +15,13 @@
             style="cursor: pointer"
             @click="isCollapse = !isCollapse"
           ></i>
-          <span>江苏传智播客科技教育有限公司</span>
+          <span>测试版本</span>
         </div>
         <el-dropdown>
           <div class="avatar-warp">
             <img class="avatar" :src="user.photo" alt="" />
-            <span>{{ user.name }}</span>
+            <!-- <span>{{ user.username }}</span> -->
+            <span>{{ username }}</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
           </div>
           <el-dropdown-menu slot="dropdown">
@@ -36,7 +38,7 @@
 </template>
 
 <script>
-// import { getUserProfile } from '@/api/user'
+import { mapState } from 'vuex'
 import AppAside from './components/aside'
 export default {
   name: 'LayoutIndex',
@@ -50,39 +52,18 @@ export default {
       isCollapse: false
     }
   },
-  computed: {},
+  computed: {
+    ...mapState(['username']) // 映射
+  },
   watch: {},
   created () { },
-  mounted () {
-    this.loadUserProfile()
-  },
+  mounted () { },
   methods: {
-    loadUserProfile () {
-      // getUserProfile().then((res) => {
-      //   // console.log(res.data.data)
-      //   this.user = res.data.data
-      // })
-    },
     logout () {
-      this.$confirm('确定退出吗?', '退出提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.$message({
-          type: 'success',
-          message: '退出成功!'
-        })
-        window.localStorage.removeItem('user')
-        this.$router.push({
-          name: 'login'
-        })
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消退出'
-        })
-      })
+      sessionStorage.clear()
+      this.$router.push({ name: 'login' })
+      // 删除vuex中的数据 让当前页面刷新
+      window.location.reload()
     }
   }
 }
@@ -102,6 +83,8 @@ export default {
     }
   }
   .header {
+    height: 64px;
+    background: #fff;
     border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;

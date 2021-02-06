@@ -4,13 +4,14 @@
     class="el-menu-vertical-demo"
     @open="handleOpen"
     @close="handleClose"
-    background-color="#001D35"
+    background-color="#304156"
     text-color="#fff"
     active-text-color="#ffd04b"
     :collapse="isCollapse"
     :collapse-transition="false"
     router
-    ><div class="logo-aside"></div>
+  >
+    <div class="logo-aside"></div>
     <!-- 一级菜单 -->
     <el-submenu
       :index="item.id + ''"
