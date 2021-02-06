@@ -61,6 +61,11 @@ export default {
     onLogin () {
       login(this.form).then(res => {
         console.log(res)
+        this.$message.success({
+          message: '登陆成功',
+          center: true
+        })
+        // this.$router.push('/')
       })
     }
   }
