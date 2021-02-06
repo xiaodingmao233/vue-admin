@@ -14,7 +14,7 @@
             <el-input placeholder="请输入密码" type="password" v-model="form.password" show-password></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" style="width: 100%">登 录</el-button>
+            <el-button type="primary" style="width: 100%" @click="onLogin">登 录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { login } from '@/api/user'
 export default {
   name: '',
   components: {},
@@ -56,7 +57,13 @@ export default {
   watch: {},
   created () {},
   mounted () {},
-  methods: {}
+  methods: {
+    onLogin () {
+      login(this.form).then(res => {
+        console.log(res)
+      })
+    }
+  }
 }
 </script>
 
