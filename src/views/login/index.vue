@@ -58,15 +58,15 @@ export default {
   created () {},
   mounted () {},
   methods: {
-    onLogin () {
-      login(this.form).then(res => {
-        console.log(res)
-        this.$message.success({
-          message: '登陆成功',
-          center: true
-        })
-        // this.$router.push('/')
+    async onLogin () {
+      const { data: res } = await login(this.form)
+      console.log(res)
+      this.$store.commit('setRightList', res.rights)
+      this.$message.success({
+        message: '登陆成功',
+        center: true
       })
+      this.$router.push('/')
     }
   }
 }

@@ -43,35 +43,25 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'AppAside',
   components: {},
   props: ['is-collapse'],
   data () {
     return {
-      menulist: [
-        {
-          id: 1,
-          authName: '一级菜单',
-          icon: 'icon-menu',
-          children: [{
-            id: 11,
-            authName: '一级项目1',
-            path: '/',
-            rights: ['view', 'edit', 'add', 'delete']
-          }, {
-            id: 11,
-            authName: '一级项目2',
-            path: '/',
-            rights: ['view', 'edit', 'add', 'delete']
-          }]
-        }
-      ]
+      // 左侧菜单数据
+      menulist: []
     }
   },
-  computed: {},
+  computed: {
+    ...mapState(['rightList']) // 映射
+  },
   watch: {},
-  created () { },
+  created () {
+    // 初始化menulist菜单栏的数据
+    this.menulist = this.rightList
+  },
   mounted () { },
   methods: {
     handleOpen (key, keyPath) {
