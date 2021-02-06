@@ -63,10 +63,8 @@ export default {
       console.log(res)
       this.$store.commit('setRightList', res.rights)
       this.$store.commit('setUsername', res.username)
-      this.$message.success({
-        message: '登陆成功',
-        center: true
-      })
+      sessionStorage.setItem('token', res.token)
+      this.$message.success('登陆成功')
       this.$router.push('/')
     }
   }
