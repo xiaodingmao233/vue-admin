@@ -41,6 +41,7 @@
 
 <script>
 import { login } from '@/api/user'
+import { initDynamicRoutes } from '@/router'
 export default {
   name: '',
   components: {},
@@ -65,6 +66,10 @@ export default {
       this.$store.commit('setUsername', res.username)
       sessionStorage.setItem('token', res.token)
       this.$message.success('登陆成功')
+
+      // 根据用户所具备的权限 动态添加路由规则
+      initDynamicRoutes()
+
       this.$router.push('/')
     }
   }

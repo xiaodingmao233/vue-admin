@@ -23,20 +23,20 @@ const users = [
     id: 1,
     username: 'student',
     password: '123456',
-    token: 'abcdefghijklmnopqrstuvwxyz',
+    token: 'student-token',
     rights: [{
       id: 1,
-      authName: '一级菜单',
-      icon: 'icon-menu',
+      authName: '导航一',
+      icon: 'el-icon-location',
       children: [{
         id: 11,
-        authName: '一级项目1',
-        path: '/',
+        authName: '表格页面',
+        path: 'table',
         rights: ['view', 'edit', 'add', 'delete']
       }, {
-        id: 11,
-        authName: '一级项目2',
-        path: '/',
+        id: 12,
+        authName: '素材页面',
+        path: 'image',
         rights: ['view']
       }]
     }]
@@ -45,32 +45,32 @@ const users = [
     id: 2,
     username: 'admin',
     password: '123456',
-    token: 'abcdefghijklmnopqrstuvwxyz'.split('').reverse().join(''),
+    token: 'admin-token',
     rights: [
       {
         id: 1,
-        authName: '一级菜单',
-        icon: 'icon-menu',
+        authName: '导航一',
+        icon: 'el-icon-location',
         children: [{
           id: 11,
-          authName: '一级项目1',
-          path: '/',
+          authName: '表格页面',
+          path: 'table',
           rights: ['view', 'edit', 'add', 'delete']
         }, {
-          id: 11,
-          authName: '一级项目2',
-          path: '/',
+          id: 12,
+          authName: '素材页面',
+          path: 'image',
           rights: ['view', 'edit', 'add', 'delete']
         }]
       },
       {
         id: 2,
-        authName: '二级菜单',
-        icon: 'icon-menu',
+        authName: '导航二',
+        icon: 'el-icon-setting',
         children: [{
-          id: 22,
-          authName: '二级项目1',
-          path: '/',
+          id: 21,
+          authName: '权限页面',
+          path: 'users',
           rights: ['view', 'edit', 'add', 'delete']
         }]
       }

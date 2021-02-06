@@ -72,7 +72,6 @@ export default {
       console.log(key, keyPath)
     },
     saveNavState () {
-      console.log('aa')
     }
   }
 }
