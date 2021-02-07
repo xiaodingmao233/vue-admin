@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { getTableData } from '@/api/table'
+import { getTableData, deleteTableData } from '@/api/table'
 export default {
   name: 'TableIndex',
   components: {},
@@ -67,6 +67,10 @@ export default {
     },
     handleDelete (index, row) {
       console.log(index, row)
+      deleteTableData().then(res => {
+        console.log(res)
+        this.$message.success('删除成功')
+      })
     }
   }
 }

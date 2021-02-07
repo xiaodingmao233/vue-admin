@@ -1,22 +1,8 @@
 // 使用Mock
 const Mock = require('mockjs')
-// require('./my-radom')
-// const Random = Mock.Random
 Mock.setup({
   timeout: '500-1000'
 })
-
-// const list = []
-
-// for (let i = 0; i < 20; i++) {
-//   list.push({
-//     id: i + 1,
-//     date: Random.date(),
-//     name: Random.cname(),
-//     address: Random.address(),
-//     likes: Random.likes()
-//   })
-// }
 
 // 用户信息
 const users = [
@@ -113,11 +99,25 @@ Mock.mock('/login', 'post', option => {
 
 // 获取表格信息
 Mock.mock('/tabledata', 'get', () => {
+  // 这里是获取session中token 然后验证token是否正确 如果不正确则不返回数据
   const token = sessionStorage.getItem('token')
+  // 由于这里是Mock数据 所以将用户的token在这里写死了 然后验证token是否正确
   if (token === 'admin-token' || token === 'student-token') {
     return tables
   } else {
-    alert('恶意篡改token')
-    return null
+    // 如果将session中token更改为错误的token 则展示这个信息
+    alert('无效token')
+    // 关闭弹出信息后返回401 之后通过响应拦截器跳转到登录页面
+    return {
+      status: 401
+    }
+  }
+})
+
+// 删除表格信息
+Mock.mock('/tabledata', 'delete', option => {
+  console.log(option)
+  return {
+    msg: '删除成功'
   }
 })

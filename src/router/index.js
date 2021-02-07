@@ -86,6 +86,7 @@ export function initDynamicRoutes () {
     item.children.forEach(item => {
       // item 二级权限
       const temp = ruleMapping[item.path]
+      // 路由规则中添加元数据meta
       temp.meta = item.rights
       currentRoutes[1].children.push(temp)
     })

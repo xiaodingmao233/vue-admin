@@ -4,9 +4,15 @@ import request from '@/utils/request'
 export const getTableData = () => {
   return request({
     url: '/tabledata',
-    method: 'GET',
-    headers: {
-      Authorization: 'Bearer token'
-    }
+    method: 'GET'
+  })
+}
+
+// 表格数据获取
+export const deleteTableData = params => {
+  return request({
+    url: '/tabledata',
+    method: 'DELETE',
+    params
   })
 }
