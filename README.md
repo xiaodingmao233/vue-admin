@@ -1,60 +1,46 @@
 # vue-admin
 
 #### 介绍
-将自己所学技能与element-admin后台项目相结合，制作的vue-admin简易模板
-
-#### 软件架构
-软件架构说明
-
+由于我是个初学前端的菜鸟，网上的后台模板集成度太高看不懂，所以就根据一些B站视频资料和vue-element-admin的内容整合一下，写一个简易版的后台模板。
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  下载git工具
+```
+在对应文件夹下右键然后 Git Bash Here
+```
+2.  克隆项目
+```
+git clone https://gitee.com/lizheng2000/vue-admin.git
+```
+3.  安装依赖
+```
+cnpm install
+```
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
-
-## Project setup
+1.  运行项目
 ```
-npm install
+cnpm run serve
+```
+2.  打包项目
+```
+cnpm run build
+```
+3.  登录账号及密码
+```
+普通用户： student  123456
+管理员：   admin    123456
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+#### 所涉及技术
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1.  Mock假数据
+2.  api封装
+3.  动态路由
+4.  Vuex
 
-### Lints and fixes files
-```
-npm run lint
-```
+#### 未来憧憬
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+虽然现在技术很拉跨，但我相信坚持学习总会有回报。这个模板也会慢慢完善，期望以后会对初学者有所帮助
