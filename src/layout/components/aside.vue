@@ -88,7 +88,7 @@ export default {
   height: 57px;
   margin: 10px 0 0 12px;
   padding-right: 40px;
-  background: url(./logo_admin.png) no-repeat;
+  background: url(./logo.png) no-repeat;
 }
 .iconfont {
   padding: 0 20px 0 5px;

@@ -4,6 +4,9 @@ import request from '@/utils/request'
 export const getTableData = () => {
   return request({
     url: '/tabledata',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer token'
+    }
   })
 }

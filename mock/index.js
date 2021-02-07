@@ -24,7 +24,7 @@ const users = [
     id: 1,
     username: 'student',
     password: '123456',
-    photo: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1405840109,4784534&fm=26&gp=0.jpg',
+    photo: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2667925509,1048662418&fm=11&gp=0.jpg',
     token: 'student-token',
     rights: [{
       id: 1,
@@ -111,5 +111,11 @@ Mock.mock('/login', 'post', option => {
 
 // 获取表格信息
 Mock.mock('/tabledata', 'get', () => {
-  return tables
+  const token = sessionStorage.getItem('token')
+  if (token === 'admin-token' || token === 'student-token') {
+    return tables
+  } else {
+    alert('恶意篡改token')
+    return null
+  }
 })
