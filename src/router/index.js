@@ -50,11 +50,12 @@ const routes = [
         component: () => import('@/views/home')
       }
     ]
-  },
-  {
-    path: '*',
-    component: () => import('@/views/404')
   }
+  // 没有找到页面刷新动态路由丢失问题的解决方法 先将404页面注释
+  // {
+  //   path: '*',
+  //   component: () => import('@/views/404')
+  // }
 ]
 
 const router = new VueRouter({
@@ -75,7 +76,7 @@ router.beforeEach((to, from, next) => {
 })
 
 export function initDynamicRoutes () {
-  console.log(router)
+  // console.log(router)
   // 根据二级权限 对路由规则进行动态的添加
   const currentRoutes = router.options.routes
   // currentRoutes[2].children.push()
@@ -87,6 +88,7 @@ export function initDynamicRoutes () {
       currentRoutes[1].children.push(temp)
     })
   })
+  // console.log(currentRoutes)
   router.addRoutes(currentRoutes)
 }
 
