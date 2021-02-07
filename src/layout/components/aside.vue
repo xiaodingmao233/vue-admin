@@ -12,6 +12,10 @@
     router
   >
     <div class="logo-aside"></div>
+    <el-menu-item index="/">
+      <i style="padding-right: 10px" class="el-icon-document"></i>
+      <span slot="title">首页</span>
+    </el-menu-item>
     <!-- 一级菜单 -->
     <el-submenu
       :index="item.id + ''"
