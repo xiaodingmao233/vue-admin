@@ -25,7 +25,7 @@ const userRule = {
 /**
  * eslint报错
  * error Unnecessarily quoted property 'xxx' found quote-props
- * 表示 key没必要加引号
+ * 表示 key没必要加引号 'table': tableRule => table: tableRule
  */
 // 路由规则和字符串的映射关系
 const ruleMapping = {
@@ -37,7 +37,7 @@ const ruleMapping = {
 const routes = [
   {
     path: '/login',
-    // name: 'login',
+    // name: 'login', // 这里如果有name 控制台会提醒
     component: () => import('@/views/login')
   },
   {
@@ -62,6 +62,7 @@ const router = new VueRouter({
   routes
 })
 
+// 路由导航守卫
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') {
     next()

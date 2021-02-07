@@ -11,7 +11,9 @@
     :collapse-transition="false"
     router
   >
+    <!-- 侧边栏logo -->
     <div class="logo-aside"></div>
+    <!-- 还没想如何让非动态路由循环展现 先将首页路由在这里写死 -->
     <el-menu-item index="/">
       <i style="padding-right: 10px" class="el-icon-document"></i>
       <span slot="title">首页</span>
@@ -75,8 +77,7 @@ export default {
     handleClose (key, keyPath) {
       console.log(key, keyPath)
     },
-    saveNavState () {
-    }
+    saveNavState () {}
   }
 }
 </script>

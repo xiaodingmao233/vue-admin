@@ -1,6 +1,5 @@
 <template>
   <el-container class="layout-container">
-    <!-- style="width: 210px!important;" -->
     <el-aside class="aside" width="auto">
       <app-aside class="aside-menu" :is-collapse="isCollapse"></app-aside>
     </el-aside>
@@ -20,7 +19,6 @@
         <el-dropdown>
           <div class="avatar-warp">
             <img class="avatar" :src="photo" alt="" />
-            <!-- <span>{{ user.username }}</span> -->
             <span>{{ username }}</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
           </div>
@@ -52,8 +50,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['username']), // 映射
-    ...mapState(['photo']) // 映射
+    ...mapState(['username']), // 用户名
+    ...mapState(['photo']) // 用户头像
   },
   watch: {},
   created () { },
