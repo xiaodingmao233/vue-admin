@@ -23,6 +23,7 @@ const users = [
     id: 1,
     username: 'student',
     password: '123456',
+    photo: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1405840109,4784534&fm=26&gp=0.jpg',
     token: 'student-token',
     rights: [{
       id: 1,
@@ -45,6 +46,7 @@ const users = [
     id: 2,
     username: 'admin',
     password: '123456',
+    photo: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2364244149,3298797080&fm=26&gp=0.jpg',
     token: 'admin-token',
     rights: [
       {

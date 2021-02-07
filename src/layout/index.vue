@@ -19,7 +19,7 @@
         </div>
         <el-dropdown>
           <div class="avatar-warp">
-            <img class="avatar" :src="user.photo" alt="" />
+            <img class="avatar" :src="photo" alt="" />
             <!-- <span>{{ user.username }}</span> -->
             <span>{{ username }}</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
@@ -48,12 +48,12 @@ export default {
   props: {},
   data () {
     return {
-      user: {},
       isCollapse: false
     }
   },
   computed: {
-    ...mapState(['username']) // 映射
+    ...mapState(['username']), // 映射
+    ...mapState(['photo']) // 映射
   },
   watch: {},
   created () { },

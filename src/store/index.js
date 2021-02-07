@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     rightList: JSON.parse(sessionStorage.getItem('rightList') || '[]'),
-    username: sessionStorage.getItem('username')
+    username: sessionStorage.getItem('username'),
+    photo: sessionStorage.getItem('photo')
   },
   mutations: {
     setRightList (state, data) {
@@ -16,6 +17,10 @@ export default new Vuex.Store({
     setUsername (state, data) {
       state.username = data
       sessionStorage.setItem('username', data)
+    },
+    setPhoto (state, data) {
+      state.photo = data
+      sessionStorage.setItem('photo', data)
     }
   },
   actions: {},
