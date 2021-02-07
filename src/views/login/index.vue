@@ -43,11 +43,12 @@
 import { login } from '@/api/user'
 import { initDynamicRoutes } from '@/router'
 export default {
-  name: '',
+  name: 'LoginIndex',
   components: {},
   props: {},
   data () {
     return {
+      // 管理员 admin 123456  普通用户 student 123456
       form: {
         username: 'admin',
         password: '123456'

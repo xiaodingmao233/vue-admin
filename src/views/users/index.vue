@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: '',
+  name: 'UserIndex',
   components: {},
   props: {},
   data () {
