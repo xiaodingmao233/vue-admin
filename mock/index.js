@@ -1,23 +1,24 @@
 // 使用Mock
 const Mock = require('mockjs')
-require('./my-radom')
-const Random = Mock.Random
+// require('./my-radom')
+// const Random = Mock.Random
 Mock.setup({
   timeout: '500-1000'
 })
 
-const list = []
+// const list = []
 
-for (let i = 0; i < 20; i++) {
-  list.push({
-    id: i + 1,
-    date: Random.date(),
-    name: Random.cname(),
-    address: Random.address(),
-    likes: Random.likes()
-  })
-}
+// for (let i = 0; i < 20; i++) {
+//   list.push({
+//     id: i + 1,
+//     date: Random.date(),
+//     name: Random.cname(),
+//     address: Random.address(),
+//     likes: Random.likes()
+//   })
+// }
 
+// 用户信息
 const users = [
   {
     id: 1,
@@ -80,6 +81,25 @@ const users = [
   }
 ]
 
+// 表格信息
+const tables = [{
+  date: '2016-05-02',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 1518 弄'
+}, {
+  date: '2016-05-04',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 1517 弄'
+}, {
+  date: '2016-05-01',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 1519 弄'
+}, {
+  date: '2016-05-03',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 1516 弄'
+}]
+
 // 用户登录
 Mock.mock('/login', 'post', option => {
   const { username, password } = JSON.parse(option.body)
@@ -87,4 +107,9 @@ Mock.mock('/login', 'post', option => {
     return item.username === username && item.password === password
   })
   return user
+})
+
+// 获取表格信息
+Mock.mock('/tabledata', 'get', () => {
+  return tables
 })
