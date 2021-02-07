@@ -27,9 +27,11 @@
     <el-table-column label="操作">
       <template slot-scope="scope">
         <el-button
+          v-permission="{action: 'edit', effect: 'disabled'}"
           size="mini"
           @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
         <el-button
+          v-permission="{action: 'delete', effect: 'disabled'}"
           size="mini"
           type="danger"
           @click="handleDelete(scope.$index, scope.row)">删除</el-button>

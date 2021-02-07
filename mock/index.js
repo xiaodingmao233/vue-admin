@@ -34,7 +34,7 @@ const users = [
         id: 11,
         authName: '表格页面',
         path: 'table',
-        rights: ['view', 'edit', 'add', 'delete']
+        rights: ['view']
       }, {
         id: 12,
         authName: '素材页面',

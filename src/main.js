@@ -13,6 +13,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './styles/index.css'
 // 引入mock
 import '../mock'
+// 注册permission
+import './utils/permission'
 
 // Vue.prototype.$axios = axios
 // Vue.use(Vuex)
