@@ -18,6 +18,11 @@
       <i style="padding-right: 10px" class="el-icon-s-home"></i>
       <span slot="title">首页</span>
     </el-menu-item>
+    <el-menu-item index="/chart">
+      <i style="padding-right: 10px" class="el-icon-s-data"></i>
+      <span slot="title">图表</span>
+    </el-menu-item>
+    <!-- 动态路由 -->
     <!-- 一级菜单 -->
     <el-submenu
       :index="item.id + ''"
@@ -27,7 +32,6 @@
       <!-- 一级菜单的模板区域 -->
       <template slot="title">
         <!-- 图标 -->
-        <!-- <i :class="['iconfont', item.icon]"></i> -->
         <i style="padding-right: 10px" :class="item.icon"></i>
         <!-- 文本 -->
         <span>{{ item.authName }}</span>
@@ -41,13 +45,26 @@
       >
         <template slot="title">
           <!-- 图标 -->
-          <!-- <i class="el-icon-menu"></i> -->
           <i style="padding-right: 10px" :class="subItem.icon"></i>
           <!-- 文本 -->
           <span>{{ subItem.authName }}</span>
         </template>
       </el-menu-item>
     </el-submenu>
+    <!-- 没有二级菜单的路由从这里循环 -->
+    <el-menu-item
+      :index="'/' + item.path"
+      v-for="item in itemlist"
+      :key="item.index"
+      @click="saveNavState('/' + item.path)"
+    >
+      <template slot="title">
+        <!-- 图标 -->
+        <i style="padding-right: 10px" :class="item.icon"></i>
+        <!-- 文本 -->
+        <span>{{ item.authName }}</span>
+      </template>
+    </el-menu-item>
   </el-menu>
 </template>
 
@@ -60,7 +77,8 @@ export default {
   data () {
     return {
       // 左侧菜单数据
-      menulist: []
+      menulist: [], // 有子菜单的
+      itemlist: [] // 没有子菜单的
     }
   },
   computed: {
@@ -69,7 +87,17 @@ export default {
   watch: {},
   created () {
     // 初始化menulist菜单栏的数据
-    this.menulist = this.rightList
+    // this.menulist = this.rightList
+    for (var i = 0, j = 0, k = 0; i < this.rightList.length; i++) {
+      // console.log(this.rightList[i].children.length)
+      if (this.rightList[i].children.length !== 0) {
+        this.menulist[j] = this.rightList[i]
+        j = j + 1
+      } else {
+        this.itemlist[k] = this.rightList[i]
+        k = k + 1
+      }
+    }
   },
   mounted () { },
   methods: {
