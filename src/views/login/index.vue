@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { login } from '@/api/user'
+import { login, getRoles } from '@/api/user'
 import { initDynamicRoutes } from '@/router'
 export default {
   name: 'LoginIndex',
@@ -63,7 +63,10 @@ export default {
     async onLogin () {
       const { data: res } = await login(this.form)
       // console.log(res)
-      this.$store.commit('setRightList', res.rights)
+      this.$store.commit('setRole', res.role)
+      const { data: ret } = await getRoles(res.role)
+      // console.log(ret)
+      this.$store.commit('setRightList', ret)
       this.$store.commit('setUsername', res.username)
       this.$store.commit('setPhoto', res.photo)
       sessionStorage.setItem('token', res.token)

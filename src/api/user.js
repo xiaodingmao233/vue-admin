@@ -8,3 +8,12 @@ export const login = data => {
     data
   })
 }
+
+// 获取用户权限
+export const getRoles = data => {
+  return request({
+    url: '/roles',
+    method: 'POST',
+    data
+  })
+}

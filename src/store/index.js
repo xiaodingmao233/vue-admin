@@ -5,11 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    role: sessionStorage.getItem('role'),
     rightList: JSON.parse(sessionStorage.getItem('rightList') || '[]'),
     username: sessionStorage.getItem('username'),
     photo: sessionStorage.getItem('photo')
   },
   mutations: {
+    setRole (state, data) {
+      state.role = data
+      sessionStorage.setItem('role', data)
+    },
     setRightList (state, data) {
       state.rightList = data
       sessionStorage.setItem('rightList', JSON.stringify(data))
