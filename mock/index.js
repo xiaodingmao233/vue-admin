@@ -15,22 +15,6 @@ const users = [
     token: 'student-token',
     role: 'student',
     rights: []
-    // [{
-    //   id: 1,
-    //   authName: '导航一',
-    //   icon: 'el-icon-location',
-    //   children: [{
-    //     id: 11,
-    //     authName: '表格页面',
-    //     path: 'table',
-    //     rights: ['view']
-    //   }, {
-    //     id: 12,
-    //     authName: '素材页面',
-    //     path: 'image',
-    //     rights: ['view']
-    //   }]
-    // }]
   },
   {
     id: 2,
@@ -41,39 +25,12 @@ const users = [
     token: 'admin-token',
     role: 'admin',
     rights: []
-    // [
-    //   {
-    //     id: 1,
-    //     authName: '导航一',
-    //     icon: 'el-icon-location',
-    //     children: [{
-    //       id: 11,
-    //       authName: '表格页面',
-    //       path: 'table',
-    //       rights: ['view', 'edit', 'add', 'delete']
-    //     }, {
-    //       id: 12,
-    //       authName: '素材页面',
-    //       path: 'image',
-    //       rights: ['view', 'edit', 'add', 'delete']
-    //     }]
-    //   },
-    //   {
-    //     id: 2,
-    //     authName: '导航二',
-    //     icon: 'el-icon-setting',
-    //     children: [{
-    //       id: 21,
-    //       authName: '权限页面',
-    //       path: 'users',
-    //       rights: ['view', 'edit', 'add', 'delete']
-    //     }]
-    //   }
-    // ]
   }
 ]
 
-// 权限信息
+// 权限信息 将权限信息从用户信息中抽离出来 不同身份对应不同的路由信息
+// 这样方便了后期的维护 否则以后每加一个页面就需要在每个用户信息中做更改 十分的不方便 如果用户多了更是增添了不必要的麻烦
+// 将用户直接分为不同身份 然后对不同身份做处理 这样比较合理
 const roles = {
   student: [{
     id: 1,

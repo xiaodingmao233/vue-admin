@@ -14,7 +14,7 @@
             <el-input placeholder="请输入密码" type="password" v-model="form.password" show-password></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" style="width: 100%" @click="onLogin">登 录</el-button>
+            <el-button :loading="loading" type="primary" style="width: 100%" @click="onLogin">登 录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -52,7 +52,8 @@ export default {
       form: {
         username: 'admin',
         password: '123456'
-      }
+      },
+      loading: false
     }
   },
   computed: {},
@@ -60,22 +61,29 @@ export default {
   created () {},
   mounted () {},
   methods: {
-    async onLogin () {
-      const { data: res } = await login(this.form)
-      // console.log(res)
-      this.$store.commit('setRole', res.role)
-      const { data: ret } = await getRoles(res.role)
-      // console.log(ret)
-      this.$store.commit('setRightList', ret)
-      this.$store.commit('setUsername', res.username)
-      this.$store.commit('setPhoto', res.photo)
-      sessionStorage.setItem('token', res.token)
-      this.$message.success('登陆成功')
+    onLogin () {
+      this.loading = true
+      login(this.form).then(res => {
+        // console.log(res, 'login=>res')
+        // 将用户身份存入vuex 普通用户身份: student 管理员用户身份: admin
+        this.$store.commit('setRole', res.data.role)
 
-      // 根据用户所具备的权限 动态添加路由规则
-      initDynamicRoutes()
+        this.$store.commit('setUsername', res.data.username)
+        this.$store.commit('setPhoto', res.data.photo)
+        sessionStorage.setItem('token', res.data.token)
 
-      this.$router.push('/')
+        getRoles(res.data.role).then(ret => {
+          // console.log(ret.data, 'getRoles=>ret.data')
+          // 将对应身份下的路由存储到vuex
+          this.$store.commit('setRightList', ret.data)
+          this.loading = false
+          this.$message.success('登陆成功')
+
+          // 根据用户所具备的权限 动态添加路由规则
+          initDynamicRoutes()
+          this.$router.push('/')
+        })
+      })
     }
   }
 }
