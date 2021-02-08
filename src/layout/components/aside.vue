@@ -88,6 +88,7 @@ export default {
   created () {
     // 初始化menulist菜单栏的数据
     // this.menulist = this.rightList
+    // 将有子选项的和没子选项的筛选一下 有子选项的赋值给menulist 没有子选项的赋值给itemlist
     for (var i = 0, j = 0, k = 0; i < this.rightList.length; i++) {
       // console.log(this.rightList[i].children.length)
       if (this.rightList[i].children.length !== 0) {
