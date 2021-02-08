@@ -15,7 +15,7 @@
     <div class="logo-aside"></div>
     <!-- 还没想如何让非动态路由循环展现 先将首页路由在这里写死 -->
     <el-menu-item index="/">
-      <i style="padding-right: 10px" class="el-icon-document"></i>
+      <i style="padding-right: 10px" class="el-icon-s-home"></i>
       <span slot="title">首页</span>
     </el-menu-item>
     <!-- 一级菜单 -->
@@ -27,7 +27,8 @@
       <!-- 一级菜单的模板区域 -->
       <template slot="title">
         <!-- 图标 -->
-        <i :class="['iconfont', item.icon]"></i>
+        <!-- <i :class="['iconfont', item.icon]"></i> -->
+        <i style="padding-right: 10px" :class="item.icon"></i>
         <!-- 文本 -->
         <span>{{ item.authName }}</span>
       </template>
@@ -40,7 +41,8 @@
       >
         <template slot="title">
           <!-- 图标 -->
-          <i class="el-icon-menu"></i>
+          <!-- <i class="el-icon-menu"></i> -->
+          <i style="padding-right: 10px" :class="subItem.icon"></i>
           <!-- 文本 -->
           <span>{{ subItem.authName }}</span>
         </template>

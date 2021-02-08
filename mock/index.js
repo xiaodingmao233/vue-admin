@@ -34,16 +34,18 @@ const users = [
 const roles = {
   student: [{
     id: 1,
-    authName: '导航一',
-    icon: 'el-icon-location',
+    authName: '基本页面',
+    icon: 'el-icon-connection',
     children: [{
       id: 11,
       authName: '表格页面',
+      icon: 'el-icon-menu',
       path: 'table',
       rights: ['view']
     }, {
       id: 12,
       authName: '素材页面',
+      icon: 'el-icon-s-marketing',
       path: 'image',
       rights: ['view']
     }]
@@ -51,27 +53,30 @@ const roles = {
   admin: [
     {
       id: 1,
-      authName: '导航一',
-      icon: 'el-icon-location',
+      authName: '基本页面',
+      icon: 'el-icon-connection',
       children: [{
         id: 11,
         authName: '表格页面',
+        icon: 'el-icon-menu',
         path: 'table',
         rights: ['view', 'edit', 'add', 'delete']
       }, {
         id: 12,
         authName: '素材页面',
+        icon: 'el-icon-s-marketing',
         path: 'image',
         rights: ['view', 'edit', 'add', 'delete']
       }]
     },
     {
       id: 2,
-      authName: '导航二',
-      icon: 'el-icon-setting',
+      authName: '用户权限',
+      icon: 'el-icon-set-up',
       children: [{
         id: 21,
         authName: '权限页面',
+        icon: 'el-icon-s-custom',
         path: 'users',
         rights: ['view', 'edit', 'add', 'delete']
       }]
