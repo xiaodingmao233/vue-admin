@@ -82,7 +82,7 @@ export function initDynamicRoutes () {
   const currentRoutes = router.options.routes
   // currentRoutes[2].children.push()
   const rightList = store.state.rightList
-  console.log(rightList)
+  // console.log(rightList)
   rightList.forEach(item => {
     item.children.forEach(item => {
       // item 二级权限
