@@ -8,7 +8,7 @@ export const getTableData = () => {
   })
 }
 
-// 表格数据获取
+// 表格数据删除
 export const deleteTableData = params => {
   return request({
     url: '/tabledata',
