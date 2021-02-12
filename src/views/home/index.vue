@@ -5,10 +5,14 @@
       <h3>{{ item }}</h3>
     </el-carousel-item>
   </el-carousel>
+  <div id="mybg" class="dynamic"></div>
  </div>
 </template>
 
 <script>
+// 引入动态背景的js
+// import '@/assets/js/three.r119.min.js'
+// import '@/assets/js/vanta.fog.min.js'
 export default {
   name: 'HomeIndex',
   components: {},
@@ -21,8 +25,26 @@ export default {
   computed: {},
   watch: {},
   created () {},
-  mounted () {},
-  methods: {}
+  mounted () {
+    this.createBg()
+  },
+  methods: {
+    createBg () {
+      /* eslint-disable */
+      // console.log(VANTA)
+      VANTA.FOG({
+        el: '#mybg',
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        highlightColor: 0x5530d1,
+        midtoneColor: 0x1c2bd9,
+        baseColor: 0x6b6bea
+      })
+    }
+  }
 }
 </script>
 
@@ -41,5 +63,14 @@ export default {
 
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
+  }
+
+  .dynamic{
+    // width: 100%;
+    // height: 100%;
+    // position: absolute;
+    // top: 0%;
+    // background:#1D3B77;
+    // z-index: -10;
   }
 </style>
