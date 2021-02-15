@@ -1,6 +1,9 @@
 <template>
  <div class="container">
-  <div id="mybg" class="dynamic"></div>
+  <div id="mybg" class="dynamic">
+    <el-calendar v-model="value">
+    </el-calendar>
+  </div>
  </div>
 </template>
 
@@ -14,7 +17,7 @@ export default {
   props: {},
   data () {
     return {
-
+      value: new Date()
     }
   },
   computed: {},
@@ -36,7 +39,8 @@ export default {
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
-        backgroundColor: 0x70e2f
+        // backgroundColor: 0x70e2f
+        backgroundColor: '#fff'
       })
     }
   }
@@ -53,5 +57,8 @@ export default {
   }
   /deep/.vanta-canvas {
     border-radius: 0px;
+  }
+  .el-calendar {
+    background-color: rgba(255, 255, 255, 0);
   }
 </style>
