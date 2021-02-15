@@ -14,7 +14,7 @@
             <el-input placeholder="请输入密码" type="password" v-model="form.password" show-password></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button :loading="loading" type="primary" style="width: 100%" @click="onLogin">登 录</el-button>
+            <el-button :loading="loading" type="primary" style="width: 100%" @keyup.enter="onLogin" @click="onLogin">登 录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -59,7 +59,17 @@ export default {
   computed: {},
   watch: {},
   created () {},
-  mounted () {},
+  mounted () {
+    // 实现按下回车键后登录
+    var that = this
+    document.onkeydown = () => {
+      var key = window.event.keyCode
+      // console.log(key)  13 是回车键
+      if (key === 13) {
+        that.onLogin()
+      }
+    }
+  },
   methods: {
     onLogin () {
       this.loading = true
