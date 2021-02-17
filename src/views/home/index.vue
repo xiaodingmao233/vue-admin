@@ -65,14 +65,14 @@ export default {
   }
   // 日期选择状态半透明
   /deep/.el-calendar-table td.is-selected {
-    background-color: rgba(242,248,254,0.5);
+    background-color: rgba(242, 248, 254, 0.5);
   }
   // 日期触碰状态半透明
   /deep/.el-calendar-table .el-calendar-day:hover {
-    background-color: rgba(242,248,254,0.5);
+    background-color: rgba(242, 248, 254, 0.5);
   }
   // 右上角按钮透明
   /deep/.el-button {
-    background: rgba(255,255,255,0);
+    background: rgba(255, 255, 255, 0);
   }
 </style>
