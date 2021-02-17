@@ -55,10 +55,21 @@ export default {
       height: 100%;
     }
   }
+  // vanta画布圆角去除
   /deep/.vanta-canvas {
     border-radius: 0px;
   }
+  // 日历组件透明
   .el-calendar {
     background-color: rgba(255, 255, 255, 0);
+  }
+  // 日期选择状态半透明
+  /deep/.el-calendar-table td.is-selected {
+    background-color: rgba(242,248,254,0.5);
+  }
+  // 日期触碰状态半透明
+  /deep/.el-calendar-table .el-calendar-day:hover {
+    cursor: pointer;
+    background-color: rgba(242,248,254,0.5);
   }
 </style>
