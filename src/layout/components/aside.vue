@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    default-active="/"
+    :default-active="$route.path"
     class="el-menu-vertical-demo"
     @open="handleOpen"
     @close="handleClose"
@@ -21,6 +21,10 @@
     <el-menu-item index="/chart">
       <i style="padding-right: 10px" class="el-icon-s-data"></i>
       <span slot="title">图表</span>
+    </el-menu-item>
+    <el-menu-item index="/cesium">
+      <i style="padding-right: 10px" class="el-icon-odometer"></i>
+      <span slot="title">地图</span>
     </el-menu-item>
     <!-- 动态路由 -->
     <!-- 一级菜单 -->

@@ -52,6 +52,10 @@ const routes = [
       {
         path: '/chart',
         component: () => import('@/views/chart')
+      },
+      {
+        path: '/cesium',
+        component: () => import('@/views/cesium')
       }
     ]
   }

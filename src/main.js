@@ -20,7 +20,6 @@ import '../mock'
 // 注册permission
 import './utils/permission'
 // import 'iview/dist/styles/iview.css' // 导入样式
-
 Vue.prototype.$echarts = echarts
 
 // Vue.prototype.$axios = axios
