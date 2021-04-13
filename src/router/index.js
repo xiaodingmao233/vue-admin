@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 const tableRule = {
   path: '/table',
   name: 'table',
-  component: () => import('@/views/table')
+  component: () => import('@/views/table/ceshi.vue')
 }
 const imageRule = {
   path: '/image',

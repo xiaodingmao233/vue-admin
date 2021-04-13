@@ -14,7 +14,7 @@
             style="cursor: pointer"
             @click="isCollapse = !isCollapse"
           ></i>
-          <span>&nbsp;字节跳动</span>
+          <span>&nbsp;模板</span>
         </div>
         <el-dropdown>
           <div class="avatar-warp">
